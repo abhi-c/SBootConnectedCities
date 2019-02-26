@@ -1,4 +1,5 @@
 # SBootConnectedCities
+
 Steps in development:
 -----------
 1) Using spring initializer, download a simple springboot application and its pom.xml. 
@@ -37,3 +38,5 @@ Selecting web in the modules
 Please consider assumptions as questions in case of F2F test
 
 1) Its not coded for multi threading
+
+Please read the file DevelopersNote.txt

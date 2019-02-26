@@ -1,0 +1,24 @@
+This file speak about how to run the poject and basic trouble shooting.
+
+How to run: 
+	This is a spring boot app. run command "mvn clean install".
+	Later run the jar file in target folder using is java -jar SBootConnectedCities-0.0.1-SNAPSHOT.jar 
+    default URL would be http://localhost:8080/swagger-ui.html
+    In case you want to change the port from 8080. edit application.properties to specify it using server.port=<port number>
+
+Log: 
+   Simple logger is used for two classes for debugging. Considering the time only relevant classes have loggers
+   It prints the datastructure of all the direct connections
+   
+Troubleshooting:
+	Make sure the port used here is free to use. Default is 8080
+	
+Limitations:
+	1) Its case sensitive
+	2) Spaces before/after a city name matters
+	3) first line in csv is not read
+	4) every line should have 2 cities separate with comma
+	5) empty line is not handled. It will throw error. This code is targeting happy path/positive testcases.
+	6) Edge cases like no origin or destination etc are not covered. Left for enhancement 
+
+Please go through readme.txt

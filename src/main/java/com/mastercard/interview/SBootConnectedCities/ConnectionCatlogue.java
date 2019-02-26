@@ -5,9 +5,14 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ConnectionCatlogue {
 
+	final Logger logger = Logger
+			.getLogger(ConnectionCatlogue.class.getName());
+	
 	private Map<String, LinkedHashSet<String>> directConnectionsCatogue = new HashMap<>();
 
 	private HashSet<String> checkedForConnectivity = new HashSet<>();
@@ -39,6 +44,7 @@ public class ConnectionCatlogue {
 	public synchronized boolean isConnected(String city1, String city2,
 			boolean useCleanCheckList) {
 
+		logger.log(Level.INFO, "Catlogue" + directConnectionsCatogue);
 		if (useCleanCheckList) {
 			checkedForConnectivity = new HashSet<>();
 		}
@@ -51,7 +57,8 @@ public class ConnectionCatlogue {
 			return true;
 		} else {
 			checkedForConnectivity.add(city1);
-			System.out.println(checkedForConnectivity);
+			logger.log(Level.INFO, "Visited Cities" + checkedForConnectivity.toString());
+			logger.log(Level.INFO, "For "+city1, directConnectionTo);
 			for (String layoverAtCity : directConnectionTo) {
 				if (!checkedForConnectivity.contains(layoverAtCity)) {
 					if (isConnected(layoverAtCity, city2, false)) {
